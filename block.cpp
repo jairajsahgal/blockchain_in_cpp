@@ -21,12 +21,9 @@ string Block::gethash()
 //by the network that block is valid.
 //if nance is incremented then hash is created again.
 //This is called Proof of Work, is repeated until a hash is produced that is valid.
-
 void Block::mineblock(uint32_t difficulty) //specified in the block.h
 {
-    uint32_t temp=0;//how many times block has been mined.
     char cstr[difficulty +1];//string for hash
-    bool judge;
     for(uint32_t i=0;i<difficulty;++i)
     {
         cstr[i]='0';
@@ -35,24 +32,13 @@ void Block::mineblock(uint32_t difficulty) //specified in the block.h
     string str(cstr);
     do
     {
-        cout<<"Trial version "<<temp;
         nance++;
-        cout<<"nonce is "<<nance;//I SERIOUSLY DON'T KNOW WHAT WILL BE THE OUTPUT
-        hash=calculate_hash();//hash that will be tested.
-        cout<<(hash);
-        bool judge=(hash.substr(0,difficulty)!=str);//condition for proof of work explained above
-        if(judge== true)
-        {
-            cout<<"\nHash was successful and hash was "<<hash;
-            cout<<"\nString that needed to pass the test "<<str;
-            cout<<"\nSuccessful after this many times: "<<temp;
-        }
-        else if(judge==false)
-        {
-            cout<<"Hash that failed "<<hash;
-            cout<<"Tried this many times till "<<temp;
-        }
-    }while(judge);
+        hash=calculate_hash();//hash that will be tested
+        cout<<"\n"<<nance;
+        //cout<<"\n"<<hash.substr(0,difficulty);
+        cout<<"\n"<<str;
+        cout<<"\n";
+    }while(hash.substr(0,difficulty)!=str);
     cout<<"Block Mined: "<<hash<<endl;
 }
 inline string Block::calculate_hash() const
