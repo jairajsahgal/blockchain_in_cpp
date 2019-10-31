@@ -1,3 +1,4 @@
+//This is defined program of sha256 program. The header file is by the name of sha256.h
 #include <cstring>
 #include <fstream>
 #include "sha256.h"
