@@ -1,17 +1,22 @@
 #include "blockchain.h"
 int main() {
     Blockchain block_chain=Blockchain();
-    //block_chain.set_difficulty();
-    cout<<"Mining our 1st block..."<<endl;
-    block_chain.addblock(Block(1,"Jairaj"));//data given as Jairaj
+    
+    char choice;
+    int i=1;
+    string data;
+    do
+    {
+        cout<<"Enter data for "<<i<<"th Block";
+        cin>>data;
+        cout<<"Mining "<<i<<"th "<<"Block"<<endl;
+        cout<<"With data= "<<data;
+        block_chain.addblock(Block(i,data));
+        cout<<"Do you want to add more blocks?";
 
-    cout<<"Mining our 2nd block..."<<endl;
-    block_chain.addblock(Block(2,"Nishtha"));//data given as Nishtha
+        cin>>choice;
+    }while(choice=='y');
 
-    cout<<"Mining our 3rd block..."<<endl;
-    block_chain.addblock(Block(3,"Prasoon"));//data given as Prasoon
 
-    cout<<"Mining our 4th block..."<<endl;
-    block_chain.addblock(Block(4,"Prachi"));//data given as Prachi
     return 0;
 }

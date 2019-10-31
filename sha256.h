@@ -1,3 +1,4 @@
+//This is the header file of sha256. All functions are just declared and not defined.
 #ifndef SHA256_H
 #define SHA256_H
 #include <string>
